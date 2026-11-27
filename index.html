@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neon Snake</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="hud">
+      <div class="brand">
+        <span class="dot" aria-hidden="true"></span>
+        <h1>NEON SNAKE</h1>
+      </div>
+      <div class="stats">
+        <div class="stat-card">
+          <span class="label">SCORE</span>
+          <span id="score" class="value">0</span>
+        </div>
+        <div class="stat-card">
+          <span class="label">BEST</span>
+          <span id="high-score" class="value">0</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="controls-bar" aria-label="Game settings">
+      <div class="control-group">
+        <label for="speed-select">Speed</label>
+        <select id="speed-select">
+          <option value="240">Chill</option>
+          <option value="180" selected>Classic</option>
+          <option value="120">Turbo</option>
+        </select>
+      </div>
+      <div class="control-group">
+        <label class="toggle">
+          <input type="checkbox" id="wrap-toggle" />
+          <span>Wrap Walls</span>
+        </label>
+      </div>
+      <button id="pause-btn" class="btn secondary" type="button" disabled>Pause</button>
+    </section>
+
+    <div class="board-wrap">
+      <canvas id="game-canvas" width="480" height="480" aria-label="Snake game board"></canvas>
+
+      <div id="overlay" class="overlay visible" role="dialog" aria-live="polite">
+        <h2 id="overlay-title">Ready to Play</h2>
+        <p id="overlay-subtitle">Use Arrow keys or WASD to steer. Press Space to pause.</p>
+        <button id="start-btn" class="btn primary" type="button">Start Game</button>
+      </div>
+    </div>
+
+    <div class="dpad" aria-label="On-screen directional controls">
+      <button class="dpad-btn up" data-dir="UP" type="button" aria-label="Move Up">&#9650;</button>
+      <button class="dpad-btn left" data-dir="LEFT" type="button" aria-label="Move Left">&#9664;</button>
+      <button class="dpad-btn down" data-dir="DOWN" type="button" aria-label="Move Down">&#9660;</button>
+      <button class="dpad-btn right" data-dir="RIGHT" type="button" aria-label="Move Right">&#9654;</button>
+    </div>
+
+    <footer class="footer-hint">
+      <span>Arrows / WASD: Move</span>
+      <span>Space: Pause / Resume</span>
+      <span>R: Restart</span>
+    </footer>
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>
